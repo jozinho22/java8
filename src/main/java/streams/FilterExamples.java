@@ -3,8 +3,10 @@ package streams;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Streams {
+import model.Personne;
 
+public class FilterExamples {
+	
 	public static List<Personne> filtrerSelonAge(List<Personne> personnes) {
 
 		List<Personne> listFiltree = personnes
@@ -28,4 +30,5 @@ public class Streams {
 		return listFiltree;
 
 	}
+
 }
