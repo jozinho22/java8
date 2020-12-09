@@ -7,11 +7,7 @@ import java.util.Map;
 
 import model.Personne;
 import model.Product;
-import streams.FilterExamples;
-import streams.FilterThenMapExamples;
-import streams.MapExamples;
-import streams.MapThenReduceExamples;
-import streams.ReduceExamples;
+import streams.*;
 
 public class Main {
 
@@ -60,6 +56,16 @@ public class Main {
 		
 		Map<String, BigDecimal> imcMap = FilterThenMapExamples.mapImcDesPersonneDePlusDe25AnsEtDeMoinsDe70kg(personnes);
 		System.out.println(imcMap);
+
+		// filter then sort
+		List<Personne> filterAndSortByAgeAscPersons = SortExamples.sortByAgeAscPersons(personnes);
+		System.out.println(filterAndSortByAgeAscPersons);
+		List<Personne> filterAndSortByAgeDescPersons = SortExamples.sortByAgeDescPersons(personnes);
+		System.out.println(filterAndSortByAgeDescPersons);
+		List<Personne> filterAndSortByAgeAscAndPoidsAscPersons = SortExamples.sortByAgeAscAndPoidsAscPersons(personnes);
+		filterAndSortByAgeAscAndPoidsAscPersons.forEach(System.out::println);
+
+
 	}
 
 }
