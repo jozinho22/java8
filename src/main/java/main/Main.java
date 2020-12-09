@@ -1,10 +1,12 @@
 package main;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import model.GenreEnum;
 import model.Personne;
 import model.Product;
 import streams.*;
@@ -14,10 +16,13 @@ public class Main {
 	public static void main(String[] args) {
 
 		// filter
-		Personne joss = new Personne("Joss", 25, 70, 181);
-		Personne mike = new Personne("Mike", 20, 80, 165);
-		Personne david = new Personne("David", 32, 75, 187);
-		Personne vince = new Personne("Vince", 31, 65, 178);
+		Personne joss = new Personne("Joss", 25, 70, 181, GenreEnum.HOMME);
+		Personne mike = new Personne("Mike", 20, 80, 165, GenreEnum.HOMME);
+		Personne david = new Personne("David", 32, 75, 187, GenreEnum.HOMME);
+		Personne vince = new Personne("Vince", 31, 65, 178, GenreEnum.HOMME);
+		Personne amber = new Personne("Amber", 37, 55, 170, GenreEnum.FEMME);
+		Personne camille = new Personne("Camille", 30, 60, 168, GenreEnum.FEMME);
+
 
 		List<Personne> personnes = Arrays.asList(joss, mike, david, vince);
 		
@@ -65,6 +70,14 @@ public class Main {
 		List<Personne> filterAndSortByAgeAscAndPoidsAscPersons = SortExamples.sortByAgeAscAndPoidsAscPersons(personnes);
 		filterAndSortByAgeAscAndPoidsAscPersons.forEach(System.out::println);
 
+		// min-max
+		List<Personne> empty = new ArrayList<>();
+		Personne older = MinMaxExamples.getOlder(empty);
+		System.out.println(older);
+
+		// group
+		Map<GenreEnum, List<Personne>> groupByGenre = GroupExamples.getPersonnesGroupByGenre(personnes);
+		System.out.println(groupByGenre);
 
 	}
 

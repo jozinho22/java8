@@ -6,17 +6,18 @@ public class Personne {
 	private int age;
 	private float poids;
 	private float taille;
+	private GenreEnum genre;
 	
 	public boolean isOver70kg() {
 	    return this.poids > 70;
 	}
 
-	public Personne(String name, int age, float poids, float taille) {
-		super();
+	public Personne(String name, int age, float poids, float taille, GenreEnum genre) {
 		this.name = name;
 		this.age = age;
 		this.poids = poids;
 		this.taille = taille;
+		this.genre = genre;
 	}
 
 	public String getName() {
@@ -51,10 +52,22 @@ public class Personne {
 		this.taille = taille;
 	}
 
+	public GenreEnum getGenre() {
+		return genre;
+	}
+
+	public void setGenre(GenreEnum genre) {
+		this.genre = genre;
+	}
+
 	@Override
 	public String toString() {
-		return "Personne [name=" + name + ", age=" + age + ", poids=" + poids + ", taille=" + taille + "]";
+		return "Personne{" +
+				"name='" + name + '\'' +
+				", age=" + age +
+				", poids=" + poids +
+				", taille=" + taille +
+				", genre=" + genre +
+				'}';
 	}
-	
-	
 }
