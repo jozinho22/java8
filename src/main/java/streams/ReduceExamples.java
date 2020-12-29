@@ -58,11 +58,11 @@ public class ReduceExamples {
 	
 	public static int reduceGetMin(int[] integers) {
 
-		int max = Arrays.
+		int min = Arrays.
 				stream(integers)
 				.reduce(0, (a, b) -> a < b ? a : b);
 
-		return max;
+		return min;
 
 	}
 	

@@ -5,14 +5,14 @@ public class Personne {
 	private String name;
 	private int age;
 	private float poids;
-	private float taille;
+	private int taille;
 	private GenreEnum genre;
 	
 	public boolean isOver70kg() {
 	    return this.poids > 70;
 	}
 
-	public Personne(String name, int age, float poids, float taille, GenreEnum genre) {
+	public Personne(String name, int age, float poids, int taille, GenreEnum genre) {
 		this.name = name;
 		this.age = age;
 		this.poids = poids;
@@ -44,11 +44,11 @@ public class Personne {
 		this.poids = poids;
 	}
 
-	public float getTaille() {
+	public int getTaille() {
 		return taille;
 	}
 
-	public void setTaille(float taille) {
+	public void setTaille(int taille) {
 		this.taille = taille;
 	}
 
