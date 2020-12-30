@@ -6,10 +6,9 @@ package main;
  *  - no state
  *  - pure functions
  *  - no side effects
- *  - higher order functions
- *
- *  The function takes one or more functions as parameters
- *  The function returns another function as results
+ *  - higher order functions :
+ *      * the function takes one or more functions as parameters
+ *      * the function returns another function as results
  */
 public class RulesOfFunctionnalProgramming {
 }
