@@ -1,6 +1,5 @@
 package main;
 
-import com.sun.xml.internal.ws.developer.MemberSubmissionAddressing;
 import combinatorpattern.PersonneValidation;
 import combinatorpattern.ValidationResult;
 import model.GenreEnum;
