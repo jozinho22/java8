@@ -31,7 +31,6 @@ public class Sudoku {
                     if(list.get(i).get(j) == list.get(i).get(k)) {
                         throw new RuntimeException("Ligne " + i + " incorrecte");
                     }
-
                 }
             }
             System.out.println("-----------");
@@ -40,7 +39,7 @@ public class Sudoku {
         }*/
 
         // verifier les colonnes
-        for(int i = 0; i < list.size(); i++) {
+        /*for(int i = 0; i < list.size(); i++) {
             for(int j = 0; j < list.size() - 1; j++) {
                 for(int k = i + 1; k < list.size(); k++) {
                     System.out.println("-----------");
@@ -50,14 +49,40 @@ public class Sudoku {
                     if(list.get(i).get(j) == list.get(k).get(j)) {
                         throw new RuntimeException("Colonne " + j + " incorrecte");
                     }
-
                 }
                 System.out.println("-----------");
                 System.out.println("Nouvelle colonne");
                 System.out.println("-----------");
             }
+        }*/
+
+        // Verifier les zones 3 par 3
+        List<List<Integer>> flatZones = new ArrayList<>();
+
+        for(int line = 0; line < list.size() - 2; line++) {
+
+            for(int col = 0; col < list.get(line).size() - 2; col++) {
+                List<Integer> flatZone = new ArrayList<>();
+                for(int lineTemp = line; lineTemp < line + 3; lineTemp++) {
+                    for(int colTemp = col; colTemp < col + 3; colTemp++) {
+                        flatZone.add(list.get(lineTemp).get(colTemp));
+                    }
+                    System.out.println("-----------");
+                    System.out.println(flatZone);
+                    System.out.println("-----------");
+                }
+                flatZones.add(flatZone);
+                for(int k = 0; k < flatZone.size() - 1; k++) {
+                    if(flatZone.get(k) == flatZone.get(k + 1)) {
+                        throw new RuntimeException("Erreur dans la zone [line " + line + "] - [col " + col + "]");
+                    }
+                }
+            }
+            System.out.println("-----------");
+            System.out.println("Nouvelle ligne");
+            System.out.println("-----------");
 
         }
-
+        System.out.println(flatZones);
     }
 }
