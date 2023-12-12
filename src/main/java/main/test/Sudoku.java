@@ -59,9 +59,9 @@ public class Sudoku {
         // Verifier les zones 3 par 3
         List<List<Integer>> flatZones = new ArrayList<>();
 
-        for(int line = 0; line < list.size() - 2; line++) {
+        for(int line = 0; line < list.size() ; line += 3) {
 
-            for(int col = 0; col < list.get(line).size() - 2; col++) {
+            for(int col = 0; col < list.get(line).size(); col += 3) {
                 List<Integer> flatZone = new ArrayList<>();
                 for(int lineTemp = line; lineTemp < line + 3; lineTemp++) {
                     for(int colTemp = col; colTemp < col + 3; colTemp++) {
@@ -73,9 +73,12 @@ public class Sudoku {
                 }
                 flatZones.add(flatZone);
                 for(int k = 0; k < flatZone.size() - 1; k++) {
-                    if(flatZone.get(k) == flatZone.get(k + 1)) {
-                        throw new RuntimeException("Erreur dans la zone [line " + line + "] - [col " + col + "]");
+                    for(int j = k + 1; j < flatZone.size() - 1; k++) {
+                        if(flatZone.get(j) == flatZone.get(k)) {
+                            throw new RuntimeException("Erreur dans la zone [line " + line + "] - [col " + col + "] - " + flatZone.get(k) + " en double");
+                        }
                     }
+
                 }
             }
             System.out.println("-----------");
